@@ -14,14 +14,13 @@ public class AnswerGeneratorTest {
     public void testAnswerGenerator_generate_function() throws Exception {
 
         RandomIntGenerator randomIntGenerator = mock(RandomIntGenerator.class);
-
-        String randomIntResult = "2 5 7 3";
-        when(randomIntGenerator.generateNums(9, 4)).thenReturn(randomIntResult);
-
         AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
 
-        assertEquals(answerGenerator.generate().toString(), randomIntResult);
+        when(randomIntGenerator.generateNums(9, 4)).thenReturn("2 5 7 3");
+        assertEquals(answerGenerator.generate().toString(), "2 5 7 3");
 
+        when(randomIntGenerator.generateNums(9, 4)).thenReturn("1 2 3 4");
+        assertNotEquals(answerGenerator.generate().toString(), "2 5 7 3");
     }
 
 }
