@@ -83,6 +83,11 @@ public class GameTest {
 
     @Test
     public void testGame_checkStatus_function_success() throws Exception {
+        game_.guess(Answer.createAnswer("1 3 2 4"));
+        game_.guess(Answer.createAnswer("1 3 2 4"));
+        game_.guess(Answer.createAnswer("1 3 2 4"));
+        game_.guess(Answer.createAnswer("1 3 2 4"));
+        game_.guess(Answer.createAnswer("1 3 2 4"));
         game_.guess(Answer.createAnswer("1 2 3 4"));
 
         assertEquals(game_.checkStatus(), SUCCESS);
